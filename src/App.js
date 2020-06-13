@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import {
+  Route, Switch, withRouter, Redirect,
+} from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import Home from './pages/Home/Home';
+import Layout from './hoc/layout/layout';
+import theme from './themes/default';
+import GlobalStyle from './GlobalStyle';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+  }
+
+  render() {
+    const routeComponents = [
+      { name: 'Home', component: Home },
+    ];
+    const routes = (
+      <Switch>
+        <Route path="/" component={Home} />
+        <Redirect to="/" />
+      </Switch>
+    );
+    return (
+      <ThemeProvider theme={theme}>
+        <GlobalStyle palette={theme.palette} />
+        <Layout routeComponents={routeComponents}>
+          {routes}
+        </Layout>
+      </ThemeProvider>
+    );
+  }
 }
 
-export default App;
+export default withRouter((App));
