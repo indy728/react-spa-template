@@ -34,7 +34,7 @@ const NavLogo = (props) => {
 
   return (
     <Wrapper>
-      <ImageShape shape="circle" width="100%" src={coffeLogo} alt="My Logo" />
+      <ImageShape shape="circle" src={coffeLogo} alt="My Logo" />
     </Wrapper>
   );
 };

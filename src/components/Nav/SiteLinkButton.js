@@ -26,7 +26,7 @@ const LinkItem = styled.li`
   &.ready {
     cursor: pointer;
     transition: all ease-in .3s;
-    border-bottom: 1px solid ${({ theme }) => theme.palette.border};
+    border-bottom: 1px solid ${({ theme }) => theme.palette.border.accent};
 
     :hover {
       background-color: ${({ theme }) => theme.palette.active};
@@ -37,10 +37,10 @@ const LinkItem = styled.li`
 
   &.active {
     background-color: ${({ theme }) => theme.palette.active};
-    border: 1px solid ${({ theme }) => theme.palette.complement[0]};
+    border: 1px solid ${({ theme }) => theme.palette.border.complement};
 
     * {
-      color: ${({ theme }) => theme.palette.complement[0]};
+      color: ${({ theme }) => theme.palette.font.complement};
     }
   }
 

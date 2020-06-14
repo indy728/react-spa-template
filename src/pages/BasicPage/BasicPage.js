@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import Main from 'components/Home';
 import { device } from 'themes/media';
 import { SideNav } from 'components/UI';
@@ -9,8 +8,6 @@ import ContentTemplate from '../templates/contentTemplate';
 const Wrapper = styled(ContentTemplate)`
   flex: 1;
 `;
-
-// const SideNavList = styled.
 
 const BreadCrumbs = styled.div`
   @media ${device.lg} {
@@ -23,24 +20,17 @@ const BreadCrumbs = styled.div`
   }
 `;
 
-const home = (props) => {
-  const { routeComponents } = props;
+const basicPage = () => {
   const sideNavLinks = [];
   for (let i = 0; i < 10; i += 1) sideNavLinks.push(`Item ${i}`);
 
   return (
-    <Wrapper className="home">
-      <SideNav sideNavItems={routeComponents} />
+    <Wrapper className="basic-page">
+      <SideNav sideNavItems={sideNavLinks} />
       <Main />
-      <BreadCrumbs>
-        {/* <Temp /> */}
-      </BreadCrumbs>
+      <BreadCrumbs />
     </Wrapper>
   );
 };
 
-home.propTypes = {
-  routeComponents: PropTypes.arrayOf(PropTypes.element).isRequired,
-};
-
-export default home;
+export default basicPage;

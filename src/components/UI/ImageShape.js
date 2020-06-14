@@ -10,6 +10,7 @@ const Box = styled.figure`
   overflow: hidden;
 
   img {
+    width: 100%;
     height: 100%;
     backface-visibility: hidden;
     transition: all .5s;
@@ -65,7 +66,7 @@ imageShape.propTypes = {
 imageShape.defaultProps = {
   className: '',
   shape: 'box',
-  width: '10rem',
+  width: '100%',
   height: '',
   src: 'no source',
   alt: 'no alt',

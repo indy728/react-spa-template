@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { device } from 'themes/media';
 import { FlexSpacer } from 'components/UI';
-import SiteLinkButton from './SiteLinkButton';
+import { SiteLinkButton } from '.';
 
 const Wrapper = styled.div`
   display: ${({ show }) => (show ? 'flex' : 'none')};

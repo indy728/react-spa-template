@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { PropTypes } from 'prop-types';
 import { device } from 'themes/media';
 import { CollapseButton } from 'components/UI';
-import NavLogo from 'components/Nav/NavLogo';
-import NavLinks from 'components/Nav/NavLinks';
+import { NavLinks, NavLogo } from 'components/Nav';
 
 const Navbar = styled.nav`
   width: 100%;

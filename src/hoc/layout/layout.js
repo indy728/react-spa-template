@@ -5,8 +5,6 @@ import Nav from './nav/nav';
 import Footer from './footer/footer';
 import Content from './content/content';
 
-const SideNav = styled.div``;
-
 class Layout extends Component {
   state = {
 
@@ -20,11 +18,14 @@ class Layout extends Component {
   render() {
     const { routeComponents, children } = this.props;
 
+    console.log('[layout] children:; ', children);
+
     return (
       <>
         <Nav links={this.links} login />
-        <SideNav routeComponents={routeComponents} />
-        <Content>
+        <Content
+          routeComponents={routeComponents}
+        >
           {children}
         </Content>
         <Footer links={this.links} />

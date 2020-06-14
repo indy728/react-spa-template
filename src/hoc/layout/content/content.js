@@ -33,16 +33,19 @@ class content extends Component {
   }
 
   render() {
-    const { prop } = this.props;
+    const { children } = this.props;
     const { contentMinHeight } = this.state;
 
     return (
-      <Wrapper id="content" minHeight={contentMinHeight} />
+      <Wrapper id="content" minHeight={contentMinHeight}>
+        {children}
+      </Wrapper>
     );
   }
 }
 
 content.propTypes = {
+  children: PropTypes.element.isRequired,
 };
 
 export default content;

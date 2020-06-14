@@ -3,10 +3,11 @@ import {
   Route, Switch, withRouter, Redirect,
 } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import Home from './pages/Home/Home';
-import Layout from './hoc/layout/layout';
-import theme from './themes/default';
-import GlobalStyle from './GlobalStyle';
+import Home from 'pages/Home/Home';
+import BasicPage from 'pages/BasicPage/BasicPage';
+import Layout from 'hoc/layout/layout';
+import theme from 'themes/default';
+import GlobalStyle from 'GlobalStyle';
 
 class App extends Component {
   componentDidMount() {
@@ -14,17 +15,27 @@ class App extends Component {
 
   render() {
     const routeComponents = [
-      { name: 'Home', component: Home },
+      { name: 'Home', component: Home, path: '/' },
+      { name: 'Basic Page', component: BasicPage, path: 'BasicPage' },
     ];
     const routes = (
       <Switch>
-        <Route path="/" component={Home} />
+        {routeComponents.map((routeComponent) => {
+          const RouteElement = routeComponent.component;
+          return (
+            <Route
+              key={routeComponent.name}
+              path={routeComponent.path}
+              render={() => <RouteElement routeComponents={routeComponents} />}
+            />
+          );
+        })}
         <Redirect to="/" />
       </Switch>
     );
     return (
       <ThemeProvider theme={theme}>
-        <GlobalStyle palette={theme.palette} />
+        <GlobalStyle palette={theme.palette} fonts={theme.fonts} />
         <Layout routeComponents={routeComponents}>
           {routes}
         </Layout>

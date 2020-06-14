@@ -46,3 +46,6 @@ export {
 export {
   default as LinkListItem,
 } from './LinkListItem';
+export {
+  default as SideNav,
+} from './SideNav';

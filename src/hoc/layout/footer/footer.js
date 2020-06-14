@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { device, mediaSize } from 'themes/media';
+import { device } from 'themes/media';
 import { FooterLinks, FooterSocial, FooterContact } from 'components/Footer';
 import { Row } from 'components/Containers';
 import AdminLogin from 'components/Admin/AdminLogin';

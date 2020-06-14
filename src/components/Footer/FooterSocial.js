@@ -39,7 +39,7 @@ const SocialMediaButton = styled(ImageShape)`
   margin: 0 .2rem;
   transition: ${({ theme }) => theme.transition.shrink};
   animation: moveInTop 1.1s linear;
-  animation-delay: ${({ delay }) => delay};
+  animation-delay: ${({ delay }) => `${delay}ms`};
 
   :hover {
     transform: ${({ theme }) => theme.transform.grow};
@@ -83,7 +83,7 @@ const footerSocial = () => {
           colorCode={socialMediaLink.colorCode}
           customTag={icon}
           shape="circle"
-          delay={`${i * 150}ms`}
+          delay={i * 150}
         />
       </a>
 

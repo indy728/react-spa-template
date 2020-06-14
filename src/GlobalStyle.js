@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { device } from 'themes/media';
 
+
 const GlobalStyle = createGlobalStyle`
   @keyframes moveInBottom {
     0% {
@@ -11,17 +12,21 @@ const GlobalStyle = createGlobalStyle`
       transform: translate(0); } 
   }
 
-  * { 
-    margin: 0;
-    padding: 0;
-  }
-
   @keyframes moveInTop {
     0% {
       opacity: 0;
       transform: translateY(-75%); }
     85% {
       transform: translateY(15%);}
+    100% {
+      opacity: 1;
+      transform: translate(0); } 
+  }
+
+  @keyframes moveInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(75%); }
     100% {
       opacity: 1;
       transform: translate(0); } 
@@ -59,6 +64,11 @@ const GlobalStyle = createGlobalStyle`
     background-repeat: no-repeat;
     min-height: 100vh;
     font-size: 1.4rem;
+    font-family: ${({ fonts }) => fonts.sans};
+
+    address, h1, h2, h3, h4, h5, h6 {
+      font-family: ${({ fonts }) => fonts.serif}
+    }
     
     * {
       display: flex;
