@@ -15,8 +15,12 @@ class App extends Component {
 
   render() {
     const routeComponents = [
-      { name: 'Home', component: Home, path: '/' },
-      { name: 'Basic Page', component: BasicPage, path: 'BasicPage' },
+      {
+        name: 'Home', component: Home, path: '/', exact: true,
+      },
+      {
+        name: 'Basic Page', component: BasicPage, path: '/BasicPage', exact: true,
+      },
     ];
     const routes = (
       <Switch>
@@ -26,6 +30,7 @@ class App extends Component {
             <Route
               key={routeComponent.name}
               path={routeComponent.path}
+              exact={routeComponent.exact}
               render={() => <RouteElement routeComponents={routeComponents} />}
             />
           );

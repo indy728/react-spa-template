@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { device } from 'themes/media';
-import content from 'hoc/layout/content/content';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -10,6 +9,7 @@ const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.palette.white};
   align-items: normal;
   flex-flow: row;
+  padding: 1.5rem 0;
 
   @media ${device.sm} {
   }
@@ -24,14 +24,12 @@ const Wrapper = styled.div`
 
 const contentTemplate = (props) => {
   const {
-    className, children, nav1, nav2,
+    className, children,
   } = props;
 
   return (
     <Wrapper className={className}>
-      {/* {nav1} */}
       {children}
-      {/* {nav2} */}
     </Wrapper>
   );
 };
@@ -39,12 +37,6 @@ const contentTemplate = (props) => {
 contentTemplate.propTypes = {
   className: PropTypes.string.isRequired,
   children: PropTypes.element.isRequired,
-  // nav1: PropTypes.element,
-  // nav2: PropTypes.element,
 };
-// contentTemplate.defaultProps = {
-//   nav1: null,
-//   nav2: null,
-// };
 
 export default contentTemplate;
