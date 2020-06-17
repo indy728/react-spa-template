@@ -11,6 +11,8 @@ const Navbar = styled.nav`
   justify-content: space-between;
   background-color: ${({ theme }) => theme.palette.primary[0]};
   padding: ${({ theme }) => theme.padding.containerXS};
+  position: relative;
+  z-index: 9999;
 
   @media ${device.sm} {
     padding: ${({ theme }) => theme.padding.containerSM};
@@ -36,6 +38,19 @@ const Navbar = styled.nav`
 `;
 
 const NavCollapse = styled(CollapseButton)`
+  padding: 1rem .75rem;
+  border: 1px solid ${({ theme }) => theme.palette.white};
+  background-color: ${({ theme }) => theme.palette.active};
+
+  > div {
+    width: 3.6rem;
+    border-bottom: .3rem solid ${({ theme }) => theme.palette.white};
+
+    &:not(:first-child) {
+      margin-top: 1rem;
+    }
+  }
+
   @media ${device.sm} {}
 
   @media ${device.md} {
@@ -49,24 +64,20 @@ const NavCollapse = styled(CollapseButton)`
 
 class Nav extends Component {
   state = {
-    mobile: false,
+    showMobileNav: false,
   }
 
   collapseHandler = () => {
-    this.setState((prevState) => ({ mobile: !prevState.mobile }));
+    this.setState((prevState) => ({ showMobileNav: !prevState.showMobileNav }));
   }
 
   render() {
     const { links, login } = this.props;
-    const { mobile } = this.state;
+    const { showMobileNav } = this.state;
 
-    const mobileLinks = mobile ? (
-      <div style={{
-        height: '10rem', width: '10rem', backgroundColor: 'white', alignSelf: 'flex-start',
-      }}
-      />
-    ) : null;
-    const pcLinks = mobile ? null : <NavLinks links={links} login={login} />;
+    const pcLinks = showMobileNav
+      ? <NavLinks links={links} login={login} show />
+      : <NavLinks links={links} login={login} />;
 
     return (
       <>
@@ -75,7 +86,6 @@ class Nav extends Component {
           <NavLogo />
           {pcLinks}
         </Navbar>
-        {mobileLinks}
       </>
     );
   }

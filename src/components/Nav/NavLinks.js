@@ -8,26 +8,33 @@ import { FlexSpacer } from 'components/UI';
 import { SiteLinkButton } from '.';
 
 const Wrapper = styled.div`
-  display: ${({ show }) => (show ? 'flex' : 'none')};
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
-  @media ${device.sm} {}
-
-  @media ${device.md} {
-    width: 100%;
-    margin-left: 4rem;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    animation: moveInBottom 1s ease-out;
-
-    ul {
+  width: 100%;
+  flex-direction: row;
+  ul {
       flex-direction: row;
       flex-wrap: nowrap;
     }
+
+  @media ${device.sm} {}
+
+  @media ${device.maxMd} {
+    background-color: ${({ theme }) => theme.palette.primary[0]};
+    display: ${({ show }) => (show ? 'flex' : 'none')};
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    z-index: 999;
+    animation: slideInDown .3s ease-out;
+    align-items: flex-start;
+    padding: 0 4rem;
+    overflow: hidden;
+  }
+
+  @media ${device.md} {
+    margin-left: 4rem;
+    position: relative;
+    flex-wrap: nowrap;
+    animation: moveInBottom 1s ease-out;
   }
 
   @media ${device.lg} {}

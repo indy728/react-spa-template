@@ -1,5 +1,5 @@
-const sizeInts = {
-  xs: 575,
+export const sizeInts = {
+  xs: 450,
   sm: 576,
   md: 768,
   lg: 992,

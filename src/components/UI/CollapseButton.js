@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import { device } from 'themes/media';
 
 const Wrapper = styled.div`
-  width: 4rem;
-  height: 3rem;
   border-radius: 3px;
   justify-content: space-between;
   padding: .2rem;
@@ -21,10 +19,9 @@ const Wrapper = styled.div`
 
 const Line = styled.div`
   width: 100%;
-  border-bottom: .3rem solid ${({ theme }) => theme.palette.white};
+  border-bottom: .3rem solid ${({ theme }) => theme.palette.primary};
 
   @media ${device.sm} {
-    border-bottom: .3rem solid ${({ theme }) => theme.palette.white};
   }
 
   @media ${device.md} {}

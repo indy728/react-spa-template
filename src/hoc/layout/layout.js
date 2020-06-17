@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Nav from './nav/nav';
 import Footer from './footer/footer';
@@ -17,8 +16,6 @@ class Layout extends Component {
 
   render() {
     const { routeComponents, children } = this.props;
-
-    console.log('[layout] children:; ', children);
 
     return (
       <>

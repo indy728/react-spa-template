@@ -38,6 +38,7 @@ const LinkItem = styled.li`
   &.active {
     background-color: ${({ theme }) => theme.palette.active};
     border: 1px solid ${({ theme }) => theme.palette.border.complement};
+    pointer-events: none;
 
     * {
       color: ${({ theme }) => theme.palette.font.complement};

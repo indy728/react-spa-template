@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import { ImageShape } from 'components/UI';
 import { device } from 'themes/media';
 
@@ -29,15 +28,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const NavLogo = (props) => {
-  const { prop } = props;
-
-  return (
-    <Wrapper>
-      <ImageShape shape="circle" src={coffeLogo} alt="My Logo" />
-    </Wrapper>
-  );
-};
+const NavLogo = () => (
+  <Wrapper>
+    <ImageShape shape="circle" src={coffeLogo} alt="My Logo" />
+  </Wrapper>
+);
 
 NavLogo.propTypes = {
 };

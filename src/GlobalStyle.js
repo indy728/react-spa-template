@@ -32,6 +32,24 @@ const GlobalStyle = createGlobalStyle`
       transform: translate(0); } 
   }
 
+  @keyframes slideInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-50%); }
+    100% {
+      opacity: 1;
+      transform: translate(0); } 
+  }
+
+  @keyframes slideOutUp {
+    100% {
+      opacity: 0;
+      transform: translate(0); }
+    0% {
+      opacity: 1;
+      transform: translateY(-75%); } 
+  }
+
   * { 
     margin: 0;
     padding: 0;
@@ -75,7 +93,6 @@ const GlobalStyle = createGlobalStyle`
       flex-flow: column;
       align-items: center;
       color: ${({ palette }) => palette.font.default};
-
     }
     
     h1 {

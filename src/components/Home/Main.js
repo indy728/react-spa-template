@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import { device } from 'themes/media';
 import { ImageShape } from 'components/UI';
 
@@ -38,17 +37,13 @@ const DefaultGif = styled.div`
   @media ${device.xl} {}
 `;
 
-const main = (props) => {
-  const { prop } = props;
-
-  return (
-    <Wrapper>
-      <DefaultGif>
-        <ImageShape src={defaultGif} alt="Content Placeholder" />
-      </DefaultGif>
-    </Wrapper>
-  );
-};
+const main = () => (
+  <Wrapper>
+    <DefaultGif>
+      <ImageShape src={defaultGif} alt="Content Placeholder" />
+    </DefaultGif>
+  </Wrapper>
+);
 
 main.propTypes = {
 };
