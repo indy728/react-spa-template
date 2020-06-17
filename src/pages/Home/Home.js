@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Main from 'components/Home';
 import ContentTemplate from '../templates/contentTemplate';
@@ -8,18 +9,25 @@ const Wrapper = styled(ContentTemplate)`
   flex: 1;
 `;
 
-const home = (props) => {
-  const { routeComponents } = props;
+class Home extends Component {
+  render() {
+    const { routeComponents, id } = this.props;
+    console.log('[Home] id: ', id);
 
-  return (
-    <Wrapper className="home">
-      <Main />
-    </Wrapper>
-  );
-};
+    return (
+      <Wrapper className="home">
+        <Main />
+      </Wrapper>
+    );
+  }
+}
 
-home.propTypes = {
+Home.propTypes = {
   routeComponents: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
 
-export default home;
+const mapStateToProps = (state) => ({
+  id: state.auth.id,
+});
+
+export default connect(mapStateToProps)(Home);
