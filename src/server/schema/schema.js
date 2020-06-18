@@ -2,17 +2,25 @@ const {
   GraphQLSchema,
   GraphQLObjectType,
   GraphQLString,
-  GraphQLBoolean,
-  GraphQLInt,
+  GraphQLList,
 } = require('graphql');
 const axios = require('axios');
+const TestType = require('./testType.js');
+const WeatherType = require('./weatherType.js');
 
-const testJSONUrl = 'https://jsonplaceholder.typicode.com/todos/';
+require('dotenv').config();
 
-const axiosGet = (param) => {
+const testJSONUrl = 'https://jsonplaceholder.typicode.com/';
+
+const openWeatherAPIKey = process.env.REACT_APP_WEATHER_API_KEY;
+const weatherUrl = (zipcode) => `https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&appid=${openWeatherAPIKey}&units=imperial`;
+
+const testGet = (params) => {
+  const endpoint = `/${params.join('/')}`;
+
   const options = {
     method: 'get',
-    url: `/${param}`,
+    url: endpoint,
     baseURL: testJSONUrl,
     headers: {
       Accept: 'application/json',
@@ -28,27 +36,26 @@ const axiosGet = (param) => {
     });
 };
 
-const TestType = new GraphQLObjectType({
-  name: 'Test',
-  fields: {
-    userId: {
-      type: GraphQLInt,
-      resolve: (result) => result.userId,
+const weatherGet = (zipcode) => {
+  const wurl = weatherUrl(zipcode);
+
+  const options = {
+    method: 'get',
+    url: wurl,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json;charset=UTF-8',
     },
-    id: {
-      type: GraphQLInt,
-      resolve: (result) => result.id,
-    },
-    title: {
-      type: GraphQLString,
-      resolve: (result) => result.title,
-    },
-    completed: {
-      type: GraphQLBoolean,
-      resolve: (result) => result.completed,
-    },
-  },
-});
+  };
+
+  return axios(options)
+    .then((res) => res.data)
+    .catch((er) => {
+      console.log('[schema] er: ;', er);
+      throw (er);
+    });
+};
+
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQuery',
@@ -56,9 +63,16 @@ const RootQuery = new GraphQLObjectType({
     getIds: {
       type: TestType,
       args: {
-        id: { type: GraphQLString },
+        params: { type: GraphQLList(GraphQLString) },
       },
-      resolve: (root, args) => axiosGet(args.id), // "root" is almost never used
+      resolve: (root, args) => testGet(args.params), // "root" is almost never used
+    },
+    getWeather: {
+      type: WeatherType,
+      args: {
+        zipcode: { type: GraphQLString },
+      },
+      resolve: (root, args) => weatherGet(args.zipcode), // "root" is almost never used
     },
   },
 });
