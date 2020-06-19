@@ -7,7 +7,7 @@ const {
 const WeatherDetails = new GraphQLObjectType({
   name: 'WeatherDetails',
   fields: {
-    head: {
+    main: {
       type: GraphQLString,
       resolve: (result) => result.main,
     },
@@ -27,11 +27,11 @@ const TempDetails = new GraphQLObjectType({
   fields: {
     temp: {
       type: GraphQLString,
-      resolve: (result) => result.temp,
+      resolve: (result) => Math.round(result.temp),
     },
-    feels_like: {
+    feelsLike: {
       type: GraphQLString,
-      resolve: (result) => result.feels_like,
+      resolve: (result) => Math.round(result.feels_like),
     },
     humidity: {
       type: GraphQLString,
@@ -47,7 +47,7 @@ const WeatherType = new GraphQLObjectType({
       type: GraphQLList(WeatherDetails),
       resolve: (result) => result.weather,
     },
-    temp: {
+    temperature: {
       type: TempDetails,
       resolve: (result) => result.main,
     },

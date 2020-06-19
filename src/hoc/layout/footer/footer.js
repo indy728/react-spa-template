@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { device } from 'themes/media';
-import { FooterLinks, FooterSocial, FooterContact } from 'components/Footer';
+import {
+  FooterLinks, FooterSocial, FooterContact, FooterWeather,
+} from 'components/Footer';
 import { Row } from 'components/Containers';
 import AdminLogin from 'components/Admin/AdminLogin';
 
@@ -89,7 +91,7 @@ const footer = (props) => {
     <Wrapper id="footer">
       <FooterTable className="footer-row">
         <FooterLinks links={links} />
-        <div>Weather API</div>
+        <FooterWeather />
         <FooterContact />
       </FooterTable>
       <FooterSocial />

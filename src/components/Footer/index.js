@@ -7,3 +7,6 @@ export {
 export {
   default as FooterContact,
 } from './FooterContact';
+export {
+  default as FooterWeather,
+} from './FooterWeather';
