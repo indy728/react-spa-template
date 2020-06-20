@@ -23,7 +23,7 @@ const Wrapper = styled.div`
     position: absolute;
     top: ${({ theme }) => theme.height.navbar.xs};
     left: 0;
-    z-index: 999;
+    z-index: 9999;
     animation: slideInDown .3s ease-out;
     align-items: flex-start;
     padding: 2rem 4rem;

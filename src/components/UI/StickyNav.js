@@ -29,7 +29,7 @@ const ButtonWrapper = styled.div`
   background-color: ${({ theme }) => theme.palette.white};
   color: ${({ theme }) => theme.palette.black};
   justify-content: center;
-  z-index: 9999;
+  z-index: 9998;
   box-shadow: 0 0 9px  ${({ theme }) => theme.palette.primary[2]};;
   position: absolute;
 
@@ -53,7 +53,9 @@ const ButtonWrapper = styled.div`
   > svg {
 
     @media ${device.maxMd} {
-      transform: translate(1px, 1px) scale(1.4);
+      &.fa-map-signs {
+        transform: translate(1px, 1px) scale(1.4);
+      }
     }
 
     transform: scale(1.3);
