@@ -21,12 +21,12 @@ const Wrapper = styled.div`
     background-color: ${({ theme }) => theme.palette.primary[0]};
     display: ${({ show }) => (show ? 'flex' : 'none')};
     position: absolute;
-    bottom: -50%;
+    top: ${({ theme }) => theme.height.navbar.xs};
     left: 0;
     z-index: 999;
     animation: slideInDown .3s ease-out;
     align-items: flex-start;
-    padding: 0 4rem;
+    padding: 2rem 4rem;
     overflow: hidden;
   }
 

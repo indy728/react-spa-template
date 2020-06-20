@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Main from 'components/Home';
+import { StickyNav } from 'components/UI';
 import ContentTemplate from '../templates/contentTemplate';
 
 const Wrapper = styled(ContentTemplate)`
@@ -16,6 +17,7 @@ class Home extends Component {
 
     return (
       <Wrapper className="home">
+        <StickyNav stickyNavItems={routeComponents} />
         <Main />
       </Wrapper>
     );

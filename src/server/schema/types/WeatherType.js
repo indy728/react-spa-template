@@ -3,6 +3,7 @@ const {
   GraphQLString,
   GraphQLList,
 } = require('graphql');
+require('dotenv').config();
 
 const WeatherDetails = new GraphQLObjectType({
   name: 'WeatherDetails',

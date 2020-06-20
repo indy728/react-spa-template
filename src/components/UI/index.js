@@ -14,5 +14,8 @@ export {
   default as SideNav,
 } from './SideNav';
 export {
+  default as StickyNav,
+} from './StickyNav';
+export {
   default as BounceTrioSpinner,
 } from './Spinners/BounceTrioSpinner';

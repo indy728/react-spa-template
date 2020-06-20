@@ -11,7 +11,7 @@ class Layout extends Component {
 
   links = [
     { name: 'Indy', url: 'https://indy728.github.io' },
-    { name: 'This Page', url: '/', active: true },
+    { name: 'SPA Template', url: '/', active: true },
   ]
 
   render() {

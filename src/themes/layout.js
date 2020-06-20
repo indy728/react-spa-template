@@ -9,3 +9,13 @@ export const padding = {
 export const margin = {
   rowXS: '.5rem',
 };
+
+export const height = {
+  navbar: {
+    xs: '8rem',
+    sm: '8rem',
+    md: '8rem',
+    lg: '8rem',
+    xl: '8rem',
+  },
+};

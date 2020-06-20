@@ -12,10 +12,6 @@ const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.palette.white};
   position: relative;
 
-  @media ${device.sm} {}
-
-  @media ${device.md} {}
-
   @media ${device.maxLg} {
     position: absolute;
     top: 0;
@@ -28,15 +24,14 @@ const Wrapper = styled.div`
   @media ${device.lg} {
     flex: 1;
   }
-
-  @media ${device.xl} {}
 `;
 
 const SideNavList = styled.ul`
   width: 27.5rem;  
-    li {
-      width: 100%;
-    }
+
+  li {
+    width: 100%;
+  }
 `;
 
 
@@ -99,14 +94,10 @@ const SideNavToggleButton = styled.div`
   }
 `;
 
-const sideNav = (props) => {
-  const { sideNavItems, visible, toggleFunc } = props;
+const sideNav = ({ sideNavItems, visible, toggleFunc }) => {
   const chevron = visible ? faChevronLeft : faChevronRight;
-
   const sideNavButtons = sideNavItems.map((sideNavLink, i) => (
-    <li
-      key={sideNavLink.name}
-    >
+    <li key={sideNavLink.name}>
       <SideNavLink
         to={sideNavLink.path}
         activeClassName="side-nav__active"
@@ -116,7 +107,6 @@ const sideNav = (props) => {
             return false;
           }
           const { pathname } = location;
-          console.log(pathname);
           return pathname === sideNavLink.path;
         }}
       >

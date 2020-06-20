@@ -20,6 +20,12 @@ const homeBase = {
   accent: '#018582',
 };
 
+const overlay = {
+  primary: 'rgba(1,43,88,0.8)',
+  black: 'rgba(1,2,3,0.7)',
+  white: 'rgba(248,248,255,0.8)',
+};
+
 export const homepage = {
   primary: ['#022B58', '#02356B', '#034185', '#034891', '#0467D1'],
   complement: ['#D18800', '#915E00', '#855600', '#6B4600', '#382400'],
@@ -33,6 +39,7 @@ export const homepage = {
   success: 'green',
   black: '#010203',
   white: '#f8f8ff',
+  overlay,
 };
 
 export const socialMedia = {

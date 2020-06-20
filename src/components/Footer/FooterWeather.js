@@ -10,7 +10,6 @@ const Wrapper = styled.div`
 
   @media ${device.sm} {}
 
-  @media ${device.md} {}
 
   @media ${device.lg} {}
 
@@ -19,6 +18,12 @@ const Wrapper = styled.div`
 
 const WeatherRow = styled.div`
   flex-direction: row;
+  
+  @media ${device.maxSm} {
+    > :not(:first-child) {
+      margin-left: 2rem;
+    }
+  }
 `;
 
 const CityRow = styled.div`

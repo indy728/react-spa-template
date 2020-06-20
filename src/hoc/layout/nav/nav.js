@@ -7,29 +7,16 @@ import { NavLinks, NavLogo } from 'components/Nav';
 
 const Navbar = styled.nav`
   width: 100%;
+  height: ${({ theme }) => theme.height.navbar.xs};
   flex-direction: row;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.palette.primary[0]};
-  padding: ${({ theme }) => theme.padding.containerXS};
+  padding: 0 2rem;
   position: relative;
   z-index: 9999;
 
-  @media ${device.sm} {
-    padding: ${({ theme }) => theme.padding.containerSM};
-  }
-
   @media ${device.md} {
-    height: 6rem;
-    padding: ${({ theme }) => theme.padding.containerMD};
-  }
-
-  @media ${device.lg} {
-    height: 9rem;
-    padding: ${({ theme }) => theme.padding.containerLG};
-  }
-
-  @media ${device.xl} {
-    padding: ${({ theme }) => theme.padding.containerXL};
+    padding: 0 3rem;
   }
 
   * {

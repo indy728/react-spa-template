@@ -11,10 +11,13 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const Wrapper = styled.div`
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   padding: 1.6rem 0;
   width: 90%;
-  max-width: 40rem;
+
+  a:not(:first-child) {
+    margin-left: 1rem;
+  }
 
   @media ${device.sm} {
   }
@@ -24,7 +27,6 @@ const Wrapper = styled.div`
   }
 
   @media ${device.lg} {
-    max-width: 32rem;
   }
 
   @media ${device.xl} {}
