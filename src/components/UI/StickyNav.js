@@ -158,7 +158,7 @@ class StickyNav extends Component {
               key={i}
               delay={i * 100}
             >
-              {char}
+              {char === ' ' ? '\u00A0' : char}
             </LinkChar>
           ))}
         </StickyNavLink>
